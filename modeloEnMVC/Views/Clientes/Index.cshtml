@@ -1,0 +1,48 @@
+﻿@model IEnumerable<modeloEnMVC.Models.Clientes>
+
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<h2>Inicio</h2>
+
+<p>
+    @Html.ActionLink("Nuevo", "Create",null,new{ @class="btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaAlta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edad)
+        </th>
+        <th>
+			Acciones
+		</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaAlta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.edad)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID }, new {@class="btn btn-warning"}) |			
+            @Html.ActionLink("Detalles", "Details", new { id=item.ID }, new {@class="btn btn-success"}) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.ID }, new {@class="btn btn-danger"})
+			
+	  </td>
+    </tr>
+}
+
+</table>
