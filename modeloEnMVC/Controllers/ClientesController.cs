@@ -57,7 +57,6 @@ namespace modeloEnMVC.Controllers
             try
             {
                 var result = empList.OrderByDescending(x => x.ID).First();
-
                 int id = result.ID+1;
                 emp.ID = id;
                 empList.Add(emp);
